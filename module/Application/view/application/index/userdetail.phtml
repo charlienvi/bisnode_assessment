@@ -1,0 +1,49 @@
+<?= $this->partial('snippets/modal') ?>
+
+<section id="feature" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="header-section text-center">
+          <h2>User Detail View: <?= $this->user['firstname'] . ' ' . $this->user['lastname'] ?></h2>
+ 
+          <img src="<?= $this->basepath('img/placeholder.png') ?>" class="person-placeholder" alt="person placeholder">
+        </div>
+        <div class="feature-info">
+        <div class="row">
+          <div class="col col-sm-8" >
+               <div class="row margin-top-20">
+                   <div class="col-sm-4">First Name</div>
+                   <div class="col-sm-8"><?= $this->user['firstname'] ?></div>
+               </div> 
+               <div class="row margin-top-10">
+                   <div class="col-sm-4">Last Name</div>
+                   <div class="col-sm-8"><?= $this->user['lastname'] ?></div>
+               </div>
+               <div class="row margin-top-10">
+                   <div class="col-sm-4">Email</div>
+                   <div class="col-sm-8"><a href="mailto:<?=$this->user['email']?>"><?= $this->user['email'] ?></a></div>
+               </div>   
+               <div class="row margin-top-10 margin-bottom-20">
+                   <div class="col-sm-4">Position</div>
+                   <div class="col-sm-8"><?= $this->user['position'] ?></div>
+               </div>   
+
+          </div>
+          <div class="col col-sm-4 margin-top-20"">
+                <a href="javascript:void(0)" role="button" onClick="showUserForm({
+                            userId: '<?= $this->user['id']?>',
+                            firstName: '<?=  $this->user['firstname']?>',
+                            lastName: '<?= str_replace("'", "\'",$this->user['lastname'])?>',
+                            email: '<?= $this->user['email']?>',
+                            position: '<?= $this->user['position']?>'
+                          });" class="btn btn-green btn-user-detail"> Edit User</a><br />
+                          <a href="<?= $this->url('userlist')?>" role="button"  class="btn btn-default btn-user-detail"> <span class="glyphicon glyphicon-arrow-left"></span> All users</a>
+          </div>
+        </div>
+          
+        </div>
+      </div>
+    </div>
+
+</div>
+  </section>

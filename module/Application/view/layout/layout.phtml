@@ -1,0 +1,78 @@
+<?= $this->doctype() ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?= '<title>User admin app</title>' ?>
+
+        <?= $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+        <!-- Styles -->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
+        <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
+            ->prependStylesheet($this->basePath('plugins/DataTables/datatables.min.css'))
+            ->prependStylesheet($this->basePath('css/style.css'))
+            ->prependStylesheet($this->basePath('css/imagehover.min.css'))
+            ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
+            ->prependStylesheet($this->basePath('css/font-awesome.min.css'))
+            
+        ?>
+
+       
+    </head>
+    <body>
+        <!--Navigation bar-->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="<?= $this->url('home') ?>">Bisnode <span>Assessment</span></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="<?= ($this->url() == $this->url('home') ? ' active' : null); ?>"><a href="<?= $this->url('home'); ?>">Home</a></li>
+          <li class="<?= ($this->url() == $this->url('userlist') ? ' active' : null); ?>"><a href="<?= $this->url('userlist'); ?>">All users</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--/ Navigation bar-->
+        
+            <?= $this->content ?>
+
+    <!--Footer-->
+  <footer id="footer" class="footer">
+    <div class="container text-center">
+
+      <h3>Let's get started together!</h3>
+
+      <!-- End newsletter-form -->
+      <ul class="social-links">
+        <li><a href="https://twitter.com/bisnodebelgium" target="_blank"><i class="fa fa-twitter fa-fw"></i></a></li>
+        <li><a href="https://www.facebook.com/Bisnodebelgium/" target="_blank"><i class="fa fa-facebook fa-fw"></i></a></li>
+        <li><a href="https://www.linkedin.com/company/bisnode" target="_blank"><i class="fa fa-linkedin fa-fw"></i></a></li>
+      </ul>
+
+      <div class="credits">
+        Bisnode techical assessment - Charlien Van Impe - Theme designed by <a href="https://bootstrapmade.com/">BootstrapMade.com</a>
+      </div>
+    </div>
+  </footer>
+  <!--/ Footer-->
+   <!-- Scripts -->
+   <?= $this->inlineScript()
+            ->prependFile($this->basePath('js/application.js')) /*this module belongs to me and has not been imported from the template*/
+            ->prependFile($this->basePath('js/custom.js'))
+            ->prependFile($this->basePath('js/bootstrap.min.js'))
+            ->prependFile($this->basePath('js/jquery.easing.min.js'))
+            ->prependFile($this->basePath('js/jquery-3.3.1.min.js'))
+    ?>
+    </body>
+</html>

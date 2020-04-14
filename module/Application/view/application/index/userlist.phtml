@@ -1,0 +1,64 @@
+<?= $this->partial('snippets/modal') ?>
+
+  <!--Feature-->
+  <section id="feature" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="header-section text-center">
+          <h2>Overview of all users</h2>
+          <hr class="bottom-line">
+        </div>
+        <div class="feature-info">
+        <div class="row">
+          <div class="col col-sm-8" >
+            <?php if(isset($this->users)):?>
+              <?php if(is_array($this->users[0])): ?>
+                <table class="table table-hover table-condensed">
+                  <thead>
+                    <tr>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>View</th>
+                      <th>Edit</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php foreach($this->users as $user):?>
+                      <tr class="user-overview" id="<?php $user['id']?>">
+                        <td><?= $user['firstname']?></td>
+                        <td><?= $user['lastname']?></td>
+                        <td><a href="<?= $this->url('userdetail',['id' => $user['id']]) ?>" role="button" class="btn btn-green"><span class="glyphicon glyphicon-arrow-right" style="font-size:10px"></span></a></td>
+                        <td><a href="javascript:void(0)" role="button" onClick="showUserForm({
+                            userId: '<?= $user['id']?>',
+                            firstName: '<?=  $user['firstname']?>',
+                            lastName: '<?= str_replace("'", "\'",$user['lastname'])?>',
+                            email: '<?= $user['email']?>',
+                            position: '<?= $user['position']?>'
+                          });" class="btn btn-green"> <span class="glyphicon glyphicon-pencil" style="font-size:10px"></span></a></td>
+                      </tr>
+                    <?php endforeach; ?>
+                    
+                  </tbody>
+                </table>
+              <?php endif; ?>  
+          <?php else: ?>
+          <div class="alert alert-warning">
+            Something went wrong, please try later or contact the site administrator.
+          </div>
+
+          <?php endif; ?>
+          </div>
+          <div class="col col-sm-4">
+          <a href="javascript:void(0)" role="button" onClick="showUserForm();" class="btn btn-green"> Add New User</a>
+          </div>
+        </div>
+          
+        </div>
+      </div>
+    </div>
+
+</div>
+  </section>
+  <!--/ feature-->
+
+  
