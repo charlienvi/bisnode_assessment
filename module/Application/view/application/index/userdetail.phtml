@@ -37,7 +37,7 @@
                                 lastName: '<?= str_replace("'", "\'",$this->user['lastname'])?>',
                                 email: '<?= $this->user['email']?>',
                                 position: '<?= $this->user['position']?>'
-                              });" class="btn btn-green btn-user-detail"> Edit User</a><br />
+                              },'edit');" class="btn btn-green btn-user-detail"> Edit User</a><br />
                               <a href="<?= $this->url('userlist')?>" role="button"  class="btn btn-default btn-user-detail"> <span class="glyphicon glyphicon-arrow-left"></span> All users</a>
               </div>
           </div>

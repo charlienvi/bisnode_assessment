@@ -57,6 +57,16 @@ return [
                     ],
                 ],
             ],
+            'post' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route'    => '/post',
+                    'defaults' => [
+                        'controller' => IndexController::class,
+                        'action'     => 'post',
+                    ],
+                ],
+            ],
         ],
     ],
     'controllers' => [
@@ -78,6 +88,9 @@ return [
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',
+        ],
+        'strategies' => [
+            'ViewJsonStrategy',
         ],
     ],
 ];

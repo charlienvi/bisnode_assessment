@@ -7,11 +7,12 @@
           <h4 class="modal-title text-center form-title"><span id="userModalTitle"></span></h4>
         </div>
         <div class="modal-body padtrbl">
-
           <div class="login-box-body">
             <p class="login-box-msg"><span id="userModalMessage"></span></p>
             <div class="form-group">
               <form name="userManagementForm" id="userManagementForm">
+              <input class="form-control"  id="userId" type="hidden" />
+              <input class="form-control"  id="formAction" type="hidden" />
                 <div class="form-group has-feedback">
                   <!----- First name -------------->
                   <input class="form-control" placeholder="First Name" id="firstName" type="text" />
@@ -48,7 +49,7 @@
                 <div class="row margin-top-20">
                   <div class="col-xs-12">
                     <div id="success" class="alert alert-success hid">
-                        <p><strong>The form has been submitted successfully</strong></p>
+                        <p><strong><span id="successMessageFromValidation"></span></strong></p>
                         <p>
                           First name: <span id="firstNameSubmit"></span><br />
                           Last name: <span id="lastNameSubmit"></span><br />
@@ -58,12 +59,7 @@
                     </div>
                     <div id="err" class="alert alert-danger hid">
                         <p><strong>Some errors occured</strong></p>
-                        <p>
-                          First name: <span id="firstNameSubmitErr"></span><br />
-                          Last name: <span id="lastNameSubmitErr"></span><br />
-                          Email: <span id="emailSubmitErr"></span><br />
-                          Position: <span id="positionSubmitErr"></span><br />
-                        </p>
+                        <p><span id="errMsgFromValidation">Some fields are missing, verify the fields with a red border.</span></p>
                     </div>
                   </div>
                 </div>
