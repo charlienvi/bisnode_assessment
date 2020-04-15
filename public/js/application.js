@@ -17,10 +17,12 @@ $(document).ready((e) => {
                 console.log('check bereikt', inputVal)
                 $('#' + inputId + 'Submit').text(inputVal)
                 $('#' + inputId + 'SubmitErr').text(inputVal + ' : valid')
+                i.removeClass('input-red-border')
                 successFlag = true
             } else {
                 console.log('check ERR bereikt', inputVal)
                 $('#' + inputId + 'SubmitErr').text('This field is required')
+                i.addClass('input-red-border')
                 errorFlag = true
             }
 
@@ -36,12 +38,20 @@ $(document).ready((e) => {
 })
 function showUserForm(data = {}){
     /* hide eventual messages and values before opening */
-    console.log('test', data)
     $('#success').addClass('hid')
     $('#err').addClass('hid')
     /* check for data and visualize if present*/
-    if(data !== {}) {
-        console.log('data aanwezig', data)
+    if(Object.keys(data).length === 0) {
+        console.log('data niet aanwezig', data, Object.keys(data).length )
+        $('#userModalTitle').text('Create New User')
+        $('#userModalMessage').text('Insert all fields before submitting. They are all mandatory')
+        $('#userModalBtnCaption').text('Add New User')
+        $('#firstName').val('').removeClass('input-red-border')
+        $('#lastName').val('').removeClass('input-red-border')
+        $('#email').val('').removeClass('input-red-border')
+        $('#position').val('').removeClass('input-red-border')
+    } else {
+        console.log('data aanwezig', data, Object.keys(data).length )
         $('#userModalTitle').text('Edit User Data')
         $('#userModalMessage').text('Here You can edit the user data.')
         $('#userModalBtnCaption').text('Save Changes')
@@ -49,15 +59,8 @@ function showUserForm(data = {}){
         $('#lastName').val(data.lastName)
         $('#email').val(data.email)
         $('#position').val(data.position)
-    } else {
-        console.log('data niet aanwezig', data)
-        $('#userModalTitle').text('Create New User')
-        $('#userModalMessage').text('Insert all fields before submitting. They are all mandatory')
-        $('#userModalBtnCaption').text('Add New User')
-        $('#firstName').val('')
-        $('#lastName').val('')
-        $('#email').val('')
-        $('#position').val('')
+
+
     }
     $('#userModal').modal('show');
 }
