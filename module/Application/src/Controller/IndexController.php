@@ -70,7 +70,7 @@ class IndexController extends AbstractActionController
                     ]);
                 }
             } else {             
-                if ($postUser === true) {
+                if ($postUser===true) {
                     $response = new JsonModel([
                         'status' => 'error',
                         'message' => 'The user already exists in the datafile. You cannot insert twice.',
@@ -92,7 +92,7 @@ class IndexController extends AbstractActionController
     private function checkUser($userId, $users){
         foreach($users as $user) {
             if($user['id'] === $userId){
-                return $user;
+                return true;
             }
         }
         return false;
